@@ -1,0 +1,978 @@
+@font-face {
+    font-family: monu;
+    src: url(MonumentExtended-Regular.otf);
+}
+
+@font-face {
+    font-family: trans;
+    src: url(Transducer-VF.ttf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Transducer";
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+/* #custom-cursor{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    mix-blend-mode:difference;
+    position: fixed;
+    z-index: 99;
+    transform: translate(-50%,-50%);
+} */
+
+#cursor{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    mix-blend-mode:difference;
+    background-color: #fff;
+    z-index: 99;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) .7s;
+}
+
+#main{
+    width: 100%;
+}
+
+#home{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    /* margin-top: 8vh; */
+}
+
+#nav{
+    width: 100%;
+    height: 8vh;
+    /* position: fixed; */
+    z-index: 999;
+    background-image: url(https://hakaji.io/img/noise.png);
+    background-color: #E9E9E9;
+    border-bottom: 1px solid #000;
+    display: flex;
+}
+
+#nleft{
+    width: 21%;
+    height: 100%;
+    border-right: 1px solid #000;
+    padding: 10px 20px;
+}
+
+#nleft a{
+    color: #000;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 1.8vw;
+}
+
+#nright{
+    width: 79%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    font-size: .8vw;
+}
+
+#nright a{ 
+    text-decoration: none;
+    color: #000;
+}
+
+#nright a:nth-child(5){
+    background-color: black;
+    color: #fff;
+    padding: 9px 20px;
+    border-radius: 100px;
+    font-size: .75vw;
+}
+
+#mid{
+    width: 100%;
+    height: calc(92vh - 17vh);
+    display: flex;
+}
+
+#mleft{
+    width: 50%;
+    height: 100%;
+    border-right: 1px solid #000;
+    background-image: url(https://hakaji.io/img/noise.png);
+    background-color: #E9E9E9;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: auto;
+    display: flex;
+    pointer-events: none;
+    align-items: flex-end;
+}
+
+#mleft::-webkit-scrollbar{
+    display: none;
+}
+
+#mleft h1{
+    font-size: 35vw; 
+    font-family: monu;
+    font-weight: 600;
+    margin-right: 4vw;
+    animation-name: anim1;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+}
+
+#mleft p{
+    color: #000;
+    position: absolute;
+    width: 57%;
+    font-size: .8vw;
+    bottom: 2%;
+    left: 5%;
+}
+
+#mleft p span{
+    margin-right: 4vw;
+    display: inline-block;
+}
+
+#mleft p span::after{
+    content: "";
+    width: .65vw;
+    height: .65vw;
+    background-color: black;
+    position: absolute;
+    top: 4%;
+    clip-path: polygon(0 0, 0% 100%, 99% 0);
+}
+
+#m-mid{
+    width: 100%;
+    height: 85%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#m-mid #img1{
+    width: 52vw;
+
+    animation-name: rotate;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: normal;
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+#m-mid #img2{
+    margin-top: 100px;
+    width: 30vw;
+    position: absolute;
+    z-index: 1;
+}
+
+#mright{
+    width: 50%;
+    height: 100%;
+    background-image: url(https://hakaji.io/img/noise.png);
+    background-color: #E9E9E9;
+    position: relative;
+}
+
+#mnav{
+    width: 100%;
+    display: flex;
+    padding: 11px 0;
+    border-bottom: 1px solid #000;
+    overflow-y: hidden;
+    pointer-events: none;
+    overflow-x: auto;
+}
+
+#mnav::-webkit-scrollbar{
+    display: none;
+}
+
+#mnav h1{
+    font-family: monu;
+    font-weight: 500;
+    font-size: 1.1vw;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    margin-right: 4vw;
+    animation-name: anim1;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+}
+
+#mfooter{
+    width: 100%;
+    display: flex;
+    padding: 11px 0;
+    border-top: 1px solid #000;
+    overflow-y: hidden;
+    overflow-x: auto;
+    position: absolute;
+    pointer-events: none;
+    bottom: 0;
+}
+
+#mfooter::-webkit-scrollbar{
+    display: none;
+}
+
+#mfooter h1{
+    font-family: monu;
+    font-weight: 500;
+    font-size: 1.1vw;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    margin-right: 4vw;
+    animation-name: anim1;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    /* animation-direction: opposite; */
+    animation-direction: reverse;
+    animation-iteration-count: infinite;
+}
+
+#footer{
+    width: 100%;
+    height: 17vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    background-image: url(https://hakaji.io/img/noise.png);
+    background-color: #E9E9E9;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    pointer-events: none;
+    align-items: center;
+}
+
+#footer::-webkit-scrollbar{
+    display: none;
+}
+
+#footer h1{
+    font-family: monu;
+    font-weight: 600;
+    font-size: 6.5vw;
+    white-space: nowrap;
+    margin-right: 4vw;
+    animation-name: anim1;
+    animation-duration: 7s;
+    animation-timing-function: linear;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+}
+
+@keyframes anim1{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translate(calc(-100% - 4vw));
+    }
+}
+
+#two{
+    width: 100%;
+    height: 92vh;
+    background-image: url(https://hakaji.io/img/noise.png);
+    background-color: #E9E9E9;
+    position: relative;
+}
+
+#two #ttop{
+    width: 100%;
+    height: 50%;
+    border-bottom: 1px solid #000;
+    position: relative;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* display: flex;
+    align-items: center;
+    gap: 20px;     */
+}
+
+#ttop::-webkit-scrollbar{
+    display: none;
+}
+
+#two #tbtm{
+    width: 100%;
+    height: 50%;
+    border-bottom: 1px solid #000;
+    position: relative;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#tbtm::-webkit-scrollbar{
+    display: none;
+}
+
+.card{
+    width: 24.5vw;
+    height: 100%;
+    /* background-color: green; */
+    display: inline-block;
+    transform: translateX(-30%);
+    background-size: cover;
+    background-position: center;
+}
+
+.card2{
+    transform: translateX(-50%);
+}
+
+.c1{
+    background-image: url(https://hakaji.io/img/nft/5.png);
+}
+
+.c2{
+    background-image: url(https://hakaji.io/img/nft/18.png);
+}
+
+.c3{
+    background-image: url(https://hakaji.io/img/nft/hide.png);
+}
+
+.c4{
+    background-image: url(https://hakaji.io/img/nft/29.png);
+}
+
+.c5{
+    background-image: url(https://hakaji.io/img/nft/52.png);
+}
+
+.c6{
+    background-image: url(https://hakaji.io/img/nft/66.png);
+}
+
+.c7{
+    background-image: url(https://hakaji.io/img/nft/hide.png);
+}
+
+.c8{
+    background-image: url(https://hakaji.io/img/nft/5.png);
+}
+
+.c9{
+    background-image: url(https://hakaji.io/img/nft/52.png);
+}
+
+.c10{
+    background-image: url(https://hakaji.io/img/nft/29.png);
+}
+
+#three{
+    width: 100%;
+    height: 146.5vh;
+    background-image: url(https://hakaji.io/img/noise.png);
+    background-color: #E9E9E9;
+    position: relative;
+    /* overflow: hidden; */
+}
+
+#three-1{
+    width: 100%;
+    height: 70vh;
+}
+
+.row{
+    width: 100%;
+    /* background-color: red; */
+    white-space: nowrap;
+    overflow-x: hidden;
+    opacity: 0.2;
+    overflow-y: hidden;
+    transform-origin: 0% 50%;
+}
+.row::-webkit-scrollbar{
+    display: none;
+}
+
+.row h3{
+    font-size: 5vw;
+    font-family: monu;
+    font-weight: 550;
+    display: inline-block;
+    margin-right: 5px;
+    line-height: 1;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) .5s;
+    transform: translateX(-50%);
+    /* transform: rotateY(30deg) scale(1.4); */
+}
+
+#four{
+    width: 100%;
+    height: 146vh;
+    background-color: #F94140;
+    transform: translateY(0);
+    position: absolute;
+    position: relative;
+    overflow: hidden;
+}
+
+#four>img{
+    position: absolute;
+    width: 60vw;
+    top: 35%;
+    left: 20%;
+    transform: translate(-50%,-50%);
+    
+    animation-name: rotate;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: normal;
+}
+
+#four-bottom>img{
+    width: 48vw;
+}
+
+#fnav{
+    width: 100%;
+    padding: 5px 0;
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#fnav::-webkit-scrollbar{
+    display: none;
+}
+
+#fnav h1{
+    font-size: 6vw;
+    font-family: monu;
+    font-weight: 500;
+    display: inline-block;
+    margin-right: 4vw;
+    animation-name: anim1;
+    animation-duration: 7s;
+    animation-timing-function: linear;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+}
+
+#flr{
+    display: flex;
+}
+
+#fleft{
+    width: 50%;
+    height: 65vh;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+#fright{
+    width: 50%;
+    height: 65vh;
+    border-bottom: 1px solid #000;
+}
+
+#four-bottom{
+    width: 100%;
+    height: 65vh;
+    background-color: #F94140;
+    display: flex;
+    align-items:end;
+    justify-content: center;
+}
+
+#five{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-image: url(https://hakaji.io/img/noise.png);
+    background-color: #E9E9E9;
+}
+
+#fvnav{
+    width: 100%;
+    height: 23%;
+    display: flex;
+    border-bottom: 1px solid #000;
+}
+
+#fvleft{
+    width: 50%;
+    padding: 35px 0;
+}
+
+#fvright{
+    width: 50%;
+    padding: 35px 0;
+    border-left: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#fvright p{
+    color: #000;
+    width: 80%;
+    font-size: .85vw;
+    position: relative;
+}
+
+#fvright p span{
+    margin-right: 4vw;
+    display: inline-block;
+}
+
+#fvright p span::after{
+    content: "";
+    width: .65vw;
+    height: .65vw;
+    background-color: black;
+    position: absolute;
+    top: 4%;
+    clip-path: polygon(0 0, 0% 100%, 99% 0);
+}
+
+.crd{
+    width: 100%;
+    height: 77%;
+    border-bottom: 1px solid #000;
+    position: absolute;
+    display: flex;
+}
+
+.cright{
+    width: 50%;
+    height: 100%;
+    border-right: 1px solid #000;
+}
+
+.cright h1:nth-child(1){
+    font-size: 4vw;
+    border-bottom: 1px solid #000;
+    padding: 10px 20px;
+    font-weight: 900;
+}
+
+.cright h1{
+    font-size: 1vw;
+    padding: 10px 20px;
+    font-weight: 500;
+    border-bottom: 1px solid #000;
+}
+
+.cleft{
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+.circle{
+    overflow: hidden;
+    width: 25vw;
+    height: 25vw;
+    border: 1px solid #000;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#page6{
+    height: 90vh;
+    width: 100%;
+    background-color: #E9E9E9;
+    background-image: url(https://hakaji.io/img/noise.png);
+    background-color: #E9E9E9;
+}
+
+#top{
+    height: 93%;
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+#top-l{
+    width: 50%;
+    height: 100%;
+    border-right: 1px solid black;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#card-top>p{
+    width:88%;
+}
+
+#card-bottom>h1{
+    font-size: 100px;
+    font-weight: 900;
+}
+
+.c-subheading_icon{
+    display: inline-block;
+    margin-right: 2.5rem;
+    position: relative;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0.615rem 0.615rem 0 0;
+    border-color: currentColor rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0);
+}
+
+#top-r{
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#top-r img{
+    /* width: 105%; */
+    /* position: absolute; */
+    /* top: -15%; */
+
+    width: 51.714vw;
+    height: 51.714vw;
+    top: calc(50% - 25.857vw);
+    left: calc(50% - 25.857vw);
+
+    animation-name: rotate;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: normal;
+}
+
+#top-r #img4{
+    position: absolute;
+    animation: none;
+    width: 41.714vw;
+    height: 41.714vw;
+    top: calc(50% - 15.857vw);
+    left: calc(50% - 20.857vw);
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+#bottom{
+    height: 7%;
+    width: 100%;
+    border-bottom: 1px solid black;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+#bottom::-webkit-scrollbar{
+    display: none;
+}
+
+#bottom h3{
+    white-space: nowrap;
+
+    animation-name: address;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.bottom-wrapper{
+    width: fit-content;
+    display: flex;
+}
+
+.bottom-wrapper h3{
+    padding: 0 20px;
+}
+
+@keyframes address{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+#page7{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-image: url(https://hakaji.io/img/noise.png);
+    background-color: #EEEEEE;
+    display: flex;
+    border-top: 1px solid #000;
+}
+
+#left{
+    width: 50%;
+    height: 100%;
+    position: relative;
+    border-right: 1px solid #000;
+    padding: 20px 20px;
+    /* background-color: red; */
+}
+
+#left>h2{
+    line-height: .9;
+    font-family: monu;
+    font-size: 6.5vw;
+    color: #000;
+    z-index: 999;
+}
+
+#right{
+    width: 50%;
+    height: 100%;
+    padding: 20px 20px;
+    position: relative;
+}
+
+#right h2{
+    line-height: .9;
+    font-family: monu;
+    font-size: 6.5vw;
+}
+
+#page7 #circle{
+    width: 45vw;
+    height: 45vw;
+    border-radius: 50%;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+#circle img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    animation-name: rotate;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: normal;
+}
+
+#page7-1{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+}
+
+#p7-1-left{
+    width: 50%;
+    height: 100%;
+    position: relative;
+    background-color: #EEEEEE;
+    border-right: 1px solid #000;
+}
+
+#p7-1-left-img{
+    width: 70%;
+    position: absolute;
+    top: 47.5%;
+    left: 60%;
+    z-index: -1;
+    
+    animation-name: rotate;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction:alternate-reverse;
+}
+
+#p2-header{
+    width: 100%;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    display: flex;
+    align-items: center;
+    background-color: #EEEEEE;
+    justify-content: space-between;
+}
+
+.link{
+    width: 33.3%;
+    padding: 10px 20px;
+    border-right: 1px solid #000;
+}
+
+.link a{
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2vw;
+}
+
+#page7-1 h1{
+    line-height: .9;
+    font-family: monu;
+    font-size: 3.3vw;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#p2-footer{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+#p2-footer p{
+    font-size: .8vw;
+}
+
+#page8{
+    width: 100%;
+    height: 70vh;
+    background-color: #F94140;
+}
+
+#page8-top{
+    width: 100%;
+    height: 20vh;
+}
+
+#page8-btm{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+}
+
+.container{
+    width: 25%;
+    height: 100%;
+    position: relative;
+}
+
+.container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.name-div{
+    width: fit-content;
+    padding: 5px 25px;
+    background-color: #E9E9E9;
+    border: 1px solid black;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.name-div span{
+    font-size: 12px;
+}
+
+@media (max-width: 500px){
+    #mid{
+        flex-direction: column;
+    }
+    #mleft{
+        width: 100%;
+        height: 45%;
+        align-items: center;
+    }
+    #mright{
+        width: 100%;
+        height: 160%;
+    }
+    #mleft p{
+        display: none;
+    }
+    #mnav{
+        border-top: 1px solid black;
+    }
+    #mnav h1{
+        font-size: 4.5vw;
+    }
+    #mfooter h1{
+        font-size: 4.5vw;
+    }
+    #footer h1{
+        font-size: 30vw;
+    }
+    #nleft a{
+        font-size: 4vw;
+    }
+    #nleft{
+        padding: 21px 10px;
+    }
+    #nright{
+        padding: 0 5px;
+        font-size: 2.5vw;
+    }
+    #nright a:nth-child(5){
+        padding: 9px 13px;
+        font-size: 1.7vw;
+    }
+}
